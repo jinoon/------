@@ -33,13 +33,14 @@ for (let i = 0; i < langBtn.length; i++) {
   });
 }
 
+//chage page
 // next page
 const nextBtn = window.document.getElementById("next");
 nextBtn.addEventListener("click", function () {
   if (pageNum < lastPage) {
+    page.src = pageUrl + pageNum + ".webp";
     pageNum++;
     preloadPages();
-    page.src = pageUrl + pageNum + ".webp";
   } else {
     if (lang == "ko") {
       alert("마지막 페이지 입니다.");
@@ -53,9 +54,9 @@ nextBtn.addEventListener("click", function () {
 const prevBtn = window.document.getElementById("prev");
 prevBtn.addEventListener("click", function () {
   if (pageNum > 1) {
+    page.src = pageUrl + pageNum + ".webp";
     pageNum--;
     preloadPages();
-    page.src = pageUrl + pageNum + ".webp";
   } else if (pageNum == 1) {
     if (lang == "ko") {
       alert("첫 페이지 입니다.");
@@ -63,9 +64,9 @@ prevBtn.addEventListener("click", function () {
       alert("First Page");
     }
   } else {
+    page.src = pageUrl + pageNum + ".webp";
     pageNum++;
     preloadPages();
-    page.src = pageUrl + pageNum + ".webp";
   }
 });
 
@@ -76,7 +77,7 @@ function preloadPages() {
   if (pageNum < 4) {
     prePages = 4;
   } else if (pageNum > lastPage - 3) {
-    prePages == lastPage;
+    prePages == lastPage - 3;
   }
 
   for (let i = prePages - 3; i < prePages + 3; i++) {
