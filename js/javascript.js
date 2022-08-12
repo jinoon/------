@@ -39,7 +39,7 @@ const nextBtn = window.document.getElementById("next");
 nextBtn.addEventListener("click", function () {
   if (pageNum < lastPage) {
     pageNum++;
-    page.atsrc = pageUrl + pageNum + ".webp";
+    page.src = pageUrl + pageNum + ".webp";
     preloadPages();
   } else {
     if (lang == "ko") {
