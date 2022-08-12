@@ -38,8 +38,8 @@ for (let i = 0; i < langBtn.length; i++) {
 const nextBtn = window.document.getElementById("next");
 nextBtn.addEventListener("click", function () {
   if (pageNum < lastPage) {
-    page.src = pageUrl + pageNum + ".webp";
     pageNum++;
+    page.src = pageUrl + pageNum + ".webp";
     preloadPages();
   } else {
     if (lang == "ko") {
@@ -54,8 +54,8 @@ nextBtn.addEventListener("click", function () {
 const prevBtn = window.document.getElementById("prev");
 prevBtn.addEventListener("click", function () {
   if (pageNum > 1) {
-    page.src = pageUrl + pageNum + ".webp";
     pageNum--;
+    page.src = pageUrl + pageNum + ".webp";
     preloadPages();
   } else if (pageNum == 1) {
     if (lang == "ko") {
@@ -64,8 +64,8 @@ prevBtn.addEventListener("click", function () {
       alert("First Page");
     }
   } else {
-    page.src = pageUrl + pageNum + ".webp";
     pageNum++;
+    page.src = pageUrl + pageNum + ".webp";
     preloadPages();
   }
 });
