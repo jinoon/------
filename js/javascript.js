@@ -76,11 +76,12 @@ function preloadPages() {
   if (pageNum < 4) {
     prePages = 4;
   } else if (pageNum > lastPage - 3) {
-    prePages == lastPage - 3;
+    prePages = lastPage - 3;
   } else {
-    prePages == pageNum;
+    prePages = pageNum;
   }
 
+  console.log(prePages);
   for (let i = prePages - 3; i < prePages + 3; i++) {
     let pages = new Image();
     pages.src = pageUrl + i + ".webp";
