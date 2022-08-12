@@ -73,16 +73,16 @@ prevBtn.addEventListener("click", function () {
 //pages preload
 function preloadPages() {
   let prePages;
-
   if (pageNum < 4) {
     prePages = 4;
   } else if (pageNum > lastPage - 3) {
     prePages == lastPage - 3;
   }
-
   for (let i = prePages - 3; i < prePages + 3; i++) {
     let pages = new Image();
     pages.src = pageUrl + i + ".webp";
+    console.log("load pages");
+    console.log(i);
   }
 }
 
