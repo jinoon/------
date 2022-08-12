@@ -56,7 +56,6 @@ prevBtn.addEventListener("click", function () {
   if (pageNum > 1) {
     pageNum--;
     page.src = pageUrl + pageNum + ".webp";
-    preloadPages();
   } else if (pageNum == 1) {
     if (lang == "ko") {
       alert("첫 페이지 입니다.");
@@ -76,17 +75,19 @@ function preloadPages() {
 
   if (pageNum < 2) {
     prePages = 2;
-  } else if (pageNum > lastPage - 6) {
-    prePages = lastPage - 6;
-  } else {
-    prePages = pageNum;
-  }
+    for (let i = prePages - 1; i < prePages + 7; i++) {
+      let pages = new Image();
+      pages.src = pageUrl + i + ".webp";
+      console.log("load pages");
+      console.log(i);
+    }
+  } else if (pageNum < lastPage - 6) {
+    prePages = pageNum + 7;
 
-  for (let i = prePages - 1; i < prePages + 7; i++) {
     let pages = new Image();
-    pages.src = pageUrl + i + ".webp";
+    pages.src = pageUrl + prePages + ".webp";
     console.log("load pages");
-    console.log(i);
+    console.log(pages.src);
   }
 }
 
