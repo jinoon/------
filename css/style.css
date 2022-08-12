@@ -149,6 +149,8 @@ html {
   padding: 0.5em 2em;
   cursor: pointer;
   transition: all 0.3s;
+
+  pointer-events: none;
 }
 
 .nav span:hover {
