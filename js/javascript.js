@@ -72,7 +72,29 @@ prevBtn.addEventListener("click", function () {
     preloadPages();
   }
 });
+
 //search page
+const searchBtn = window.document.getElementById("search-btn");
+searchBtn.addEventListener("click", function () {
+  navBack.classList.toggle("on");
+  navMenu.classList.toggle("on");
+  pageNum = Number(searchNum.value);
+
+  page.src = pageUrl + pageNum + ".webp";
+
+  console.log(pageNum);
+
+  for (let i = pageNum - 1; i < pageNum + 7; i++) {
+    let pages = new Image();
+    pages.src = pageUrl + i + ".webp";
+  }
+});
+searchNum.addEventListener("keyup", function (event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    searchBtn.click();
+  }
+});
 
 //pages preload
 function preloadPages() {
@@ -83,16 +105,11 @@ function preloadPages() {
     for (let i = prePages - 1; i < prePages + 7; i++) {
       let pages = new Image();
       pages.src = pageUrl + i + ".webp";
-      console.log("load pages");
-      console.log(i);
     }
   } else if (pageNum < lastPage - 6) {
     prePages = pageNum + 7;
-
     let pages = new Image();
     pages.src = pageUrl + prePages + ".webp";
-    console.log("load pages");
-    console.log(pages.src);
   }
 }
 
@@ -109,10 +126,8 @@ const navBack = window.document.getElementById("nav-back");
 navBtn.addEventListener("click", function () {
   navBack.classList.toggle("on");
   navMenu.classList.toggle("on");
-  console.log("test");
 });
 navBack.addEventListener("click", function () {
   navBack.classList.toggle("on");
   navMenu.classList.toggle("on");
-  console.log("test");
 });
