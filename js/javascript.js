@@ -95,6 +95,25 @@ searchNum.addEventListener("keyup", function (event) {
     searchBtn.click();
   }
 });
+//list page
+const listPage = window.document.querySelectorAll(".f-list span");
+
+for (let i = 0; i < listPage.length; i++) {
+  listPage[i].addEventListener("click", function () {
+    navBack.classList.toggle("on");
+    navMenu.classList.toggle("on");
+    pageNum = Number(this.dataset.pagenumber);
+
+    page.src = pageUrl + pageNum + ".webp";
+
+    console.log(pageNum);
+
+    for (let i = pageNum - 1; i < pageNum + 7; i++) {
+      let pages = new Image();
+      pages.src = pageUrl + i + ".webp";
+    }
+  });
+}
 
 //pages preload
 function preloadPages() {
