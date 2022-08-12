@@ -10,6 +10,7 @@
 
     <meta name="description" content="「우리가 되는 방법들」 워크숍 기록집 웹뷰어 페이지입니다." />
 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
@@ -19,8 +20,92 @@
         <div class="lang" id="prev" data-lang="ko"></div>
         <div class="lang" id="next" data-lang="en"></div>
       </div>
+
       <div class="viewer">
         <img id="page" src="/pages/US0.webp" alt="" />
+      </div>
+
+      <div class="nav-back" id="nav-back"></div>
+      <div class="nav" id="nav">
+        <ul class="menu">
+          <li class="f-list">
+            <span class="ko" data-page-number="4">인사</span>
+            <span class="en hidden" data-page-number=""></span>
+          </li>
+          <li class="f-list">
+            <span class="ko" data-page-number="9">우리가 되는 방법들</span>
+            <span class="en hidden" data-page-number=""></span>
+            <ul>
+              <li class="s-list">
+                <span class="ko" data-page-number="9">기획의 글</span>
+                <span class="en hidden" data-page-number=""></span>
+              </li>
+              <li class="s-list">
+                <span class="ko" data-page-number="15">워크숍 소개</span>
+                <span class="en hidden" data-page-number=""></span>
+              </li>
+              <li class="s-list">
+                <span class="ko" data-page-number="56">대화</span>
+                <span class="en hidden" data-page-number=""></span>
+              </li>
+            </ul>
+          </li>
+          <li class="f-list">
+            <span class="ko" data-page-number="65">줌-인</span>
+            <span class="en hidden" data-page-number=""></span>
+            <ul>
+              <li class="s-list">
+                <span class="ko" data-page-number="65">개인 글쓰기</span>
+                <span class="en hidden" data-page-number=""></span>
+              </li>
+              <li class="s-list">
+                <span class="ko" data-page-number="83">릴레이 글쓰기</span>
+                <span class="en hidden" data-page-number=""></span>
+              </li>
+            </ul>
+          </li>
+          <li class="f-list">
+            <span class="ko" data-page-number="92">줌-아웃</span>
+            <span class="en hidden" data-page-number=""></span>
+            <ul>
+              <li class="s-list">
+                <span class="ko" data-page-number="92">기록의 글</span>
+                <span class="en hidden" data-page-number=""></span>
+              </li>
+              <li class="s-list">
+                <span class="ko" data-page-number="99">홍수의 흔적</span>
+                <span class="en hidden" data-page-number=""></span>
+              </li>
+            </ul>
+          </li>
+          <li class="f-list">
+            <span class="ko" data-page-number="102">참여자 소개</span>
+            <span class="en hidden" data-page-number=""></span>
+          </li>
+          <li class="f-list">
+            <span class="ko" data-page-number="104">콜로폰</span>
+            <span class="en hidden" data-page-number=""></span>
+          </li>
+          <li class="f-list links">
+            <span class="ko" data-page-number="0">LANGUAGE</span>
+            <span class="en hidden" data-page-number="0">언어</span>
+          </li>
+          <li class="f-list links">
+            <a href="http://www.busanbiennale2022.org/learn/curatorial-workshop" target="_blank">
+              <span class="ko">2022부산비엔날레</span>
+              <span class="en hidden">Busan Biennale 2022</span>
+            </a>
+          </li>
+        </ul>
+        <div class="search">
+          <input type="number" name="" id="search-number" onfocus="this.select()" value="0" />page
+          <span id="search-btn" class="ko">이동</span>
+          <span id="search-btn" class="en hidden">GO</span>
+        </div>
+      </div>
+
+      <div class="nav-btn" id="nav-btn">
+        <img src="/menu.svg" alt="" />
       </div>
     </div>
 

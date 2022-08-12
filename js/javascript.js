@@ -10,6 +10,7 @@ window.addEventListener("resize", function () {
 //functions
 let pageNum = 0;
 const page = window.document.getElementById("page");
+const searchNum = window.document.getElementById("search-number");
 
 //language variables
 let lang = "ko";
@@ -39,6 +40,7 @@ const nextBtn = window.document.getElementById("next");
 nextBtn.addEventListener("click", function () {
   if (pageNum < lastPage) {
     pageNum++;
+    searchNum.value = pageNum;
     page.src = pageUrl + pageNum + ".webp";
     preloadPages();
   } else {
@@ -55,6 +57,7 @@ const prevBtn = window.document.getElementById("prev");
 prevBtn.addEventListener("click", function () {
   if (pageNum > 1) {
     pageNum--;
+    searchNum.value = pageNum;
     page.src = pageUrl + pageNum + ".webp";
   } else if (pageNum == 1) {
     if (lang == "ko") {
@@ -64,10 +67,12 @@ prevBtn.addEventListener("click", function () {
     }
   } else {
     pageNum++;
+    searchNum.value = pageNum;
     page.src = pageUrl + pageNum + ".webp";
     preloadPages();
   }
 });
+//search page
 
 //pages preload
 function preloadPages() {
@@ -97,10 +102,17 @@ firstPageKo.src = "/pages/ko/US1.webp";
 let firstPageEn = new Image();
 firstPageEn.src = "/pages/en/US1.webp";
 
-// for (let i = 1; i < lastPage + 1; i++) {
-//   let pages = new Image();
-//   pages.src = pageUrl + i + ".webp";
-//   console.log("load pages");
-//   console.log(i);
-//   console.log(pages.src);
-// }
+//navigation
+const navBtn = window.document.getElementById("nav-btn");
+const navMenu = window.document.getElementById("nav");
+const navBack = window.document.getElementById("nav-back");
+navBtn.addEventListener("click", function () {
+  navBack.classList.toggle("on");
+  navMenu.classList.toggle("on");
+  console.log("test");
+});
+navBack.addEventListener("click", function () {
+  navBack.classList.toggle("on");
+  navMenu.classList.toggle("on");
+  console.log("test");
+});
