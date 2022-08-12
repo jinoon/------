@@ -71,8 +71,22 @@ prevBtn.addEventListener("click", function () {
 
 //pages preload
 function preloadPages() {
-  for (let i = pageNum - 3; i < pageNum + 3; i++) {
-    let images = new Image();
-    images.src = pageUrl + i + ".webp";
+  let prePages;
+
+  if (pageNum < 4) {
+    prePages = 4;
+  } else if (pageNum > lastPage - 3) {
+    prePages == lastPage;
+  }
+
+  for (let i = prePages - 3; i < prePages + 3; i++) {
+    let pages = new Image();
+    pages.src = pageUrl + i + ".webp";
   }
 }
+
+let firstPageKo = new Image();
+firstPageKo.src = "/pages/ko/US1.webp";
+
+let firstPageEn = new Image();
+firstPageEn.src = "/pages/en/US1.webp";
