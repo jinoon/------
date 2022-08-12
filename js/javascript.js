@@ -39,7 +39,7 @@ const nextBtn = window.document.getElementById("next");
 nextBtn.addEventListener("click", function () {
   if (pageNum < lastPage) {
     pageNum++;
-    page.src = pageUrl + pageNum + ".webp";
+    page.atsrc = pageUrl + pageNum + ".webp";
     preloadPages();
   } else {
     if (lang == "ko") {
@@ -82,12 +82,12 @@ function preloadPages() {
     prePages = pageNum;
   }
 
-//   for (let i = prePages - 1; i < lastPage + 7; i++) {
-//     let pages = new Image();
-//     pages.src = pageUrl + i + ".webp";
-//     console.log("load pages");
-//     console.log(i);
-//   }
+    for (let i = prePages - 1; i < lastPage + 7; i++) {
+      let pages = new Image();
+      pages.src = pageUrl + i + ".webp";
+      console.log("load pages");
+      console.log(i);
+    }
 }
 
 let firstPageKo = new Image();
@@ -96,10 +96,10 @@ firstPageKo.src = "/pages/ko/US1.webp";
 let firstPageEn = new Image();
 firstPageEn.src = "/pages/en/US1.webp";
 
-for (let i = 1; i < lastPage + 1; i++) {
-  let pages = new Image();
-  pages.src = pageUrl + i + ".webp";
-  console.log("load pages");
-  console.log(i);
-  console.log(pages.src);
-}
+// for (let i = 1; i < lastPage + 1; i++) {
+//   let pages = new Image();
+//   pages.src = pageUrl + i + ".webp";
+//   console.log("load pages");
+//   console.log(i);
+//   console.log(pages.src);
+// }
