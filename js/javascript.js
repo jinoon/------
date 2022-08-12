@@ -76,8 +76,3 @@ function preloadPages() {
     images.src = pageUrl + i + ".webp";
   }
 }
-
-$("body").click(function (e) {
-  //   e.preventDefault();
-  console.log(lang);
-});
