@@ -82,12 +82,12 @@ function preloadPages() {
     prePages = pageNum;
   }
 
-    for (let i = prePages - 1; i < lastPage + 7; i++) {
-      let pages = new Image();
-      pages.src = pageUrl + i + ".webp";
-      console.log("load pages");
-      console.log(i);
-    }
+  for (let i = prePages - 1; i < prePages + 7; i++) {
+    let pages = new Image();
+    pages.src = pageUrl + i + ".webp";
+    console.log("load pages");
+    console.log(i);
+  }
 }
 
 let firstPageKo = new Image();
