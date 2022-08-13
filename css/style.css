@@ -48,6 +48,11 @@ html {
   opacity: 0.5;
   width: 3em;
   padding: 2em;
+  transition: transform 0.3s;
+}
+#prev:hover .arrow,
+#next:hover .arrow {
+  transform: scale(1.2);
 }
 
 .viewer {
@@ -240,6 +245,12 @@ html {
   width: 3em;
   cursor: pointer;
   user-select: none;
+
+  transition: transform 0.3s;
+}
+
+.nav-btn:hover {
+  transform: scale(1.1);
 }
 
 @media (min-aspect-ratio: 1920/2559) {
