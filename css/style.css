@@ -4,6 +4,7 @@ html {
   font-family: "Noto Sans KR", sans-serif;
   line-height: 1;
   text-align: center;
+  overflow: hidden;
 }
 .wrapper {
   background-color: black;
@@ -30,6 +31,23 @@ html {
   width: 50%;
   height: 100%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+#next {
+  justify-content: flex-end;
+}
+#prev {
+  justify-content: flex-start;
+}
+
+.arrow {
+  display: none;
+  fill: #ffffff;
+  opacity: 0.5;
+  width: 3em;
+  padding: 2em;
 }
 
 .viewer {
@@ -49,6 +67,9 @@ html {
   .viewer img {
     width: auto;
     height: 100%;
+  }
+  .arrow {
+    display: block;
   }
 }
 
