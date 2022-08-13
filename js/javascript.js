@@ -78,6 +78,7 @@ const searchBtn = window.document.getElementById("search-btn");
 searchBtn.addEventListener("click", function () {
   navBack.classList.toggle("on");
   navMenu.classList.toggle("on");
+  searchBar.classList.toggle("on");
   pageNum = Number(searchNum.value);
 
   page.src = pageUrl + pageNum + ".webp";
@@ -95,6 +96,7 @@ searchNum.addEventListener("keyup", function (event) {
     searchBtn.click();
   }
 });
+
 //list page
 const listPage = window.document.querySelectorAll(".f-list span");
 
@@ -102,8 +104,10 @@ for (let i = 0; i < listPage.length; i++) {
   listPage[i].addEventListener("click", function () {
     navBack.classList.toggle("on");
     navMenu.classList.toggle("on");
+    searchBar.classList.toggle("on");
     pageNum = Number(this.dataset.pagenumber);
 
+    searchNum.value = pageNum;
     page.src = pageUrl + pageNum + ".webp";
 
     console.log(pageNum);
@@ -142,11 +146,14 @@ firstPageEn.src = "/pages/en/US1.webp";
 const navBtn = window.document.getElementById("nav-btn");
 const navMenu = window.document.getElementById("nav");
 const navBack = window.document.getElementById("nav-back");
+const searchBar = window.document.getElementById("search");
 navBtn.addEventListener("click", function () {
   navBack.classList.toggle("on");
   navMenu.classList.toggle("on");
+  searchBar.classList.toggle("on");
 });
 navBack.addEventListener("click", function () {
   navBack.classList.toggle("on");
   navMenu.classList.toggle("on");
+  searchBar.classList.toggle("on");
 });

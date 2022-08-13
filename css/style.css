@@ -1,5 +1,9 @@
 html {
   -webkit-tap-highlight-color: transparent !important;
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  line-height: 1;
+  text-align: center;
 }
 .wrapper {
   background-color: black;
@@ -58,7 +62,7 @@ html {
 
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.5s, opacity 0.5s;
+  transition: visibility 0.3s, opacity 0.3s;
 }
 
 .nav-back.on {
@@ -81,13 +85,7 @@ html {
   background-color: white;
   border: 2px solid;
 
-  /* color: white; */
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 14px;
-  line-height: 1;
-  text-align: center;
-
-  transition: visibility 0.5s, opacity 0.5s;
+  transition: visibility 0.3s, opacity 0.3s;
   visibility: hidden;
   opacity: 0;
 }
@@ -99,7 +97,7 @@ html {
 }
 
 @media (min-aspect-ratio: 1920/2559) {
-  .nav {
+  html {
     font-size: 16px;
   }
 }
@@ -157,43 +155,60 @@ html {
   transform: scale(1.1);
 }
 
-.nav .search {
-  /* width: 3em;
-  margin-bottom: 1em; */
+.search {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid;
+
+  transition: visibility 0.3s, opacity 0.3s;
+  visibility: hidden;
+  opacity: 0;
+  user-select: none;
+  padding: 0.5em;
+}
+.search.on {
+  visibility: visible;
+  opacity: 1;
 }
 
-.nav .search input {
+.search input {
   width: 1.7em;
   margin-right: 0.3em;
   border: none;
   border-bottom: 1px solid;
   text-align: right;
-  position: relative;
-  bottom: -0.15em;
 }
 
-.nav .search input:focus-visible {
+.search input:focus-visible {
   outline: none;
 }
 
 /* Chrome, Safari, Edge, Opera */
-.nav .search input::-webkit-outer-spin-button,
-.nav .search input::-webkit-inner-spin-button {
+.search input::-webkit-outer-spin-button,
+.search input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
 /* Firefox */
-.nav .search input[type="number"] {
+.search input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.nav #search-btn {
-  position: relative;
-  bottom: -0.15em;
-  padding: 1em 0.5em 0.1em 0.5em;
+#search-btn {
+  padding: 0.5em 0.5em 0.1em 0.5em;
+  margin-bottom: 0.3em;
   font-weight: bold;
   border-bottom: 1px solid;
+
+  cursor: pointer;
 }
 
 .nav-btn {
