@@ -14,8 +14,10 @@ const searchNum = window.document.getElementById("search-number");
 
 //language variables
 let lang = "ko";
-let pageUrl = "/pages/ko/US";
+let pageUrl = "/pages/ko/K";
 let lastPage = 105;
+const koLang = window.document.getElementsByClassName("ko");
+const enLang = window.document.getElementsByClassName("en");
 
 //chage languege
 const langBtn = window.document.getElementsByClassName("lang");
@@ -24,11 +26,20 @@ for (let i = 0; i < langBtn.length; i++) {
     if (pageNum == 0) {
       lang = this.dataset.lang;
       if (lang == "ko") {
-        pageUrl = "/pages/ko/US";
+        pageUrl = "/pages/ko/K";
         lastPage = 105;
+
+        for (let i = 0; i < koLang.length; i++) {
+          koLang[i].classList.remove("hidden");
+          enLang[i].classList.add("hidden");
+        }
       } else {
-        pageUrl = "/pages/en/US";
-        lastPage = 105;
+        pageUrl = "/pages/en/E";
+        lastPage = 111;
+        for (let i = 0; i < koLang.length; i++) {
+          koLang[i].classList.add("hidden");
+          enLang[i].classList.remove("hidden");
+        }
       }
     }
   });
@@ -90,6 +101,7 @@ searchBtn.addEventListener("click", function () {
     pages.src = pageUrl + i + ".webp";
   }
 });
+
 searchNum.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
     event.preventDefault();
@@ -137,10 +149,10 @@ function preloadPages() {
 }
 
 let firstPageKo = new Image();
-firstPageKo.src = "/pages/ko/US1.webp";
+firstPageKo.src = "/pages/ko/K1.webp";
 
 let firstPageEn = new Image();
-firstPageEn.src = "/pages/en/US1.webp";
+firstPageEn.src = "/pages/en/E1.webp";
 
 //navigation
 const navBtn = window.document.getElementById("nav-btn");

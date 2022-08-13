@@ -119,10 +119,6 @@ html {
   height: 1em;
 }
 
-.nav ul.menu {
-  margin-bottom: 1em;
-}
-
 .nav .f-list {
   font-weight: bold;
   font-size: 1.25em;
@@ -144,7 +140,7 @@ html {
 
 .nav span {
   display: inline-block;
-  padding: 0.5em 2em;
+  padding: 0.5em 1.1em;
   cursor: pointer;
   transition: all 0.3s;
 
