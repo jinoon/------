@@ -110,6 +110,7 @@ searchBtn.addEventListener("click", function () {
     } else {
       alert("Please enter a valid page number. " + "(1 ~ " + lastPage + ")");
     }
+    searchNum.value = pageNum;
   }
 });
 
