@@ -109,6 +109,12 @@ html {
   display: none;
 }
 
+.ex-link a {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .nav-back {
   width: 100%;
   height: 100%;

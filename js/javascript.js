@@ -70,8 +70,6 @@ prevBtn.addEventListener("click", function () {
   if (pageNum > 1) {
     pageNum--;
 
-    // searchNum.value = pageNum;
-    // page.src = pageUrl + pageNum + ".webp";
     changePage(pageNum);
   } else if (pageNum == 1) {
     if (lang == "ko") {
@@ -82,8 +80,6 @@ prevBtn.addEventListener("click", function () {
   } else {
     pageNum++;
 
-    // searchNum.value = pageNum;
-    // page.src = pageUrl + pageNum + ".webp";
     changePage(pageNum);
 
     preloadPages();
@@ -99,8 +95,6 @@ searchBtn.addEventListener("click", function () {
 
   pageNum = Number(searchNum.value);
 
-  // searchNum.value = pageNum;
-  // page.src = pageUrl + pageNum + ".webp";
   changePage(pageNum);
 
   for (let i = pageNum - 1; i < pageNum + 7; i++) {
@@ -126,8 +120,6 @@ for (let i = 0; i < listPage.length; i++) {
     searchBar.classList.toggle("on");
     pageNum = Number(this.dataset.pagenumber);
 
-    // searchNum.value = pageNum;
-    // page.src = pageUrl + pageNum + ".webp";
     changePage(pageNum);
 
     for (let i = pageNum - 1; i < pageNum + 7; i++) {
@@ -146,18 +138,13 @@ function changePage(number) {
 
   if (lang == "ko" && number == 30) {
     exLink.classList.remove("hidden");
-    exLink.addEventListener("click", function () {
-      // window.location.href = "https://checker-serpent-5a1.notion.site/BB-6bd72789d7a6407f87eecd70ec71ed09";
-      window.open("https://checker-serpent-5a1.notion.site/BB-6bd72789d7a6407f87eecd70ec71ed09");
-    });
+    exLink.childNodes[1].href = "https://checker-serpent-5a1.notion.site/BB-6bd72789d7a6407f87eecd70ec71ed09";
   } else if (lang == "en" && number == 32) {
     exLink.classList.remove("hidden");
-    exLink.addEventListener("click", function () {
-      // window.location.href = "https://checker-serpent-5a1.notion.site/BB-6bd72789d7a6407f87eecd70ec71ed09";
-      window.open("https://checker-serpent-5a1.notion.site/BB-6bd72789d7a6407f87eecd70ec71ed09");
-    });
+    exLink.childNodes[1].href = "https://checker-serpent-5a1.notion.site/BB-6bd72789d7a6407f87eecd70ec71ed09";
   } else {
     exLink.classList.add("hidden");
+    exLink.childNodes[1].href = "";
   }
 }
 
