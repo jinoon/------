@@ -292,12 +292,26 @@ html {
   transform: scale(1.1);
 }
 
+.page-number {
+  position: fixed;
+  color: #ffffff;
+  left: 1em;
+  bottom: 1em;
+  opacity: 0.5;
+  cursor: pointer;
+  user-select: none;
+}
+
 @media (min-aspect-ratio: 1920/2559) {
   .nav-btn {
     right: 2em;
     bottom: 2em;
     height: 4em;
     width: 4em;
+  }
+  .page-number {
+    left: 2em;
+    bottom: 2em;
   }
 }
 

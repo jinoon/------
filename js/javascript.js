@@ -11,6 +11,8 @@ window.addEventListener("resize", function () {
 let pageNum = 0;
 const page = window.document.getElementById("page");
 const searchNum = window.document.getElementById("search-number");
+const curPageInfo = window.document.getElementById("current-page");
+const lastPageInfo = window.document.getElementById("last-page");
 
 //language variables
 let lang = "ko";
@@ -19,7 +21,7 @@ let lastPage = 105;
 const koLang = window.document.getElementsByClassName("ko");
 const enLang = window.document.getElementsByClassName("en");
 
-//chage languege
+//change languege
 const langBtn = window.document.getElementsByClassName("lang");
 for (let i = 0; i < langBtn.length; i++) {
   langBtn[i].addEventListener("click", function () {
@@ -36,6 +38,7 @@ for (let i = 0; i < langBtn.length; i++) {
       } else {
         pageUrl = "/pages/en/E";
         lastPage = 111;
+
         for (let i = 0; i < koLang.length; i++) {
           koLang[i].classList.add("hidden");
           enLang[i].classList.remove("hidden");
@@ -89,17 +92,20 @@ prevBtn.addEventListener("click", function () {
 //search page
 const searchBtn = window.document.getElementById("search-btn");
 searchBtn.addEventListener("click", function () {
-  navBack.classList.toggle("on");
-  navMenu.classList.toggle("on");
-  searchBar.classList.toggle("on");
+  let checkPageNum = Number(searchNum.value);
 
-  pageNum = Number(searchNum.value);
-
-  changePage(pageNum);
-
-  for (let i = pageNum - 1; i < pageNum + 7; i++) {
-    let pages = new Image();
-    pages.src = pageUrl + i + ".webp";
+  if (0 <= checkPageNum && checkPageNum <= lastPage) {
+    navBack.classList.toggle("on");
+    navMenu.classList.toggle("on");
+    searchBar.classList.toggle("on");
+    pageNum = Number(searchNum.value);
+    changePage(pageNum);
+    for (let i = pageNum - 1; i < pageNum + 7; i++) {
+      let pages = new Image();
+      pages.src = pageUrl + i + ".webp";
+    }
+  } else {
+    alert("올바르지 않은 페이지 ");
   }
 });
 
@@ -134,8 +140,19 @@ const exLink = window.document.getElementById("ex-link");
 
 function changePage(number) {
   searchNum.value = number;
+
+  // info page view
+  if (number == 0) {
+    curPageInfo.innerText = "";
+    lastPageInfo.innerText = "";
+  } else {
+    curPageInfo.innerText = number;
+    lastPageInfo.innerText = "/ " + lastPage;
+  }
+
   page.src = pageUrl + number + ".webp";
 
+  //external link
   if (lang == "ko" && number == 30) {
     exLink.classList.remove("hidden");
     exLink.childNodes[1].href = "https://checker-serpent-5a1.notion.site/BB-6bd72789d7a6407f87eecd70ec71ed09";
