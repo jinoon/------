@@ -1,4 +1,4 @@
-//design
+/////////////////design
 let fullHeight = window.innerHeight;
 
 window.document.getElementById("wrapper").style.height = fullHeight + "px";
@@ -7,7 +7,7 @@ window.addEventListener("resize", function () {
   window.document.getElementById("wrapper").style.height = fullHeight + "px";
 });
 
-//functions
+///////////////////functions
 let pageNum = 0;
 const page = window.document.getElementById("page");
 const searchNum = window.document.getElementById("search-number");
@@ -45,14 +45,15 @@ for (let i = 0; i < langBtn.length; i++) {
   });
 }
 
-//chage page
+///////////////////////////chage page
 // next page
 const nextBtn = window.document.getElementById("next");
 nextBtn.addEventListener("click", function () {
   if (pageNum < lastPage) {
     pageNum++;
-    searchNum.value = pageNum;
-    page.src = pageUrl + pageNum + ".webp";
+
+    changePage(pageNum);
+
     preloadPages();
   } else {
     if (lang == "ko") {
@@ -68,8 +69,10 @@ const prevBtn = window.document.getElementById("prev");
 prevBtn.addEventListener("click", function () {
   if (pageNum > 1) {
     pageNum--;
-    searchNum.value = pageNum;
-    page.src = pageUrl + pageNum + ".webp";
+
+    // searchNum.value = pageNum;
+    // page.src = pageUrl + pageNum + ".webp";
+    changePage(pageNum);
   } else if (pageNum == 1) {
     if (lang == "ko") {
       alert("첫 페이지 입니다.");
@@ -78,8 +81,11 @@ prevBtn.addEventListener("click", function () {
     }
   } else {
     pageNum++;
-    searchNum.value = pageNum;
-    page.src = pageUrl + pageNum + ".webp";
+
+    // searchNum.value = pageNum;
+    // page.src = pageUrl + pageNum + ".webp";
+    changePage(pageNum);
+
     preloadPages();
   }
 });
@@ -90,11 +96,12 @@ searchBtn.addEventListener("click", function () {
   navBack.classList.toggle("on");
   navMenu.classList.toggle("on");
   searchBar.classList.toggle("on");
+
   pageNum = Number(searchNum.value);
 
-  page.src = pageUrl + pageNum + ".webp";
-
-  console.log(pageNum);
+  // searchNum.value = pageNum;
+  // page.src = pageUrl + pageNum + ".webp";
+  changePage(pageNum);
 
   for (let i = pageNum - 1; i < pageNum + 7; i++) {
     let pages = new Image();
@@ -119,10 +126,9 @@ for (let i = 0; i < listPage.length; i++) {
     searchBar.classList.toggle("on");
     pageNum = Number(this.dataset.pagenumber);
 
-    searchNum.value = pageNum;
-    page.src = pageUrl + pageNum + ".webp";
-
-    console.log(pageNum);
+    // searchNum.value = pageNum;
+    // page.src = pageUrl + pageNum + ".webp";
+    changePage(pageNum);
 
     for (let i = pageNum - 1; i < pageNum + 7; i++) {
       let pages = new Image();
@@ -131,7 +137,31 @@ for (let i = 0; i < listPage.length; i++) {
   });
 }
 
-//pages preload
+//change page func
+const exLink = window.document.getElementById("ex-link");
+
+function changePage(number) {
+  searchNum.value = number;
+  page.src = pageUrl + number + ".webp";
+
+  if (lang == "ko" && number == 30) {
+    exLink.classList.remove("hidden");
+    exLink.addEventListener("click", function () {
+      // window.location.href = "https://checker-serpent-5a1.notion.site/BB-6bd72789d7a6407f87eecd70ec71ed09";
+      window.open("https://checker-serpent-5a1.notion.site/BB-6bd72789d7a6407f87eecd70ec71ed09");
+    });
+  } else if (lang == "en" && number == 32) {
+    exLink.classList.remove("hidden");
+    exLink.addEventListener("click", function () {
+      // window.location.href = "https://checker-serpent-5a1.notion.site/BB-6bd72789d7a6407f87eecd70ec71ed09";
+      window.open("https://checker-serpent-5a1.notion.site/BB-6bd72789d7a6407f87eecd70ec71ed09");
+    });
+  } else {
+    exLink.classList.add("hidden");
+  }
+}
+
+////////////////pages preload
 function preloadPages() {
   let prePages;
 
@@ -154,7 +184,7 @@ firstPageKo.src = "/pages/ko/K1.webp";
 let firstPageEn = new Image();
 firstPageEn.src = "/pages/en/E1.webp";
 
-//navigation
+///////////////////navigation
 const navBtn = window.document.getElementById("nav-btn");
 const navMenu = window.document.getElementById("nav");
 const navBack = window.document.getElementById("nav-back");
