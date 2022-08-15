@@ -105,7 +105,11 @@ searchBtn.addEventListener("click", function () {
       pages.src = pageUrl + i + ".webp";
     }
   } else {
-    alert("올바르지 않은 페이지 ");
+    if (lang == "ko") {
+      alert("유요한 페이지 번호를 넣어주세요. " + "(1 ~ " + lastPage + ")");
+    } else {
+      alert("Please enter a valid page number. " + "(1 ~ " + lastPage + ")");
+    }
   }
 });
 
