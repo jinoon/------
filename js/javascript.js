@@ -7,7 +7,7 @@ window.addEventListener("resize", function () {
   window.document.getElementById("wrapper").style.height = fullHeight + "px";
 });
 //////////////
-history.pushState(null, null, "https://busanbiennale2022.curatorialworkshop.org/");
+history.pushState(null, null, location.href);
 
 window.onpopstate = function (event) {
   history.go(1);
